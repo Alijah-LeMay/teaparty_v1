@@ -11,5 +11,7 @@ span > p {
 
 h5 {
     margin-bottom: 45px;
-    text-decoration: dotted;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-color: black;
 }

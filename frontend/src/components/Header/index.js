@@ -49,7 +49,7 @@ const Header = (props) => {
               <LinkContainer to='/afternoontea'>
                 <Nav.Link>Afternoon tea</Nav.Link>
               </LinkContainer>
-              <LinkContainer to='/afternoontea'>
+              <LinkContainer to='/aboutus'>
                 <Nav.Link>Our story</Nav.Link>
               </LinkContainer>
               <LinkContainer to='/cart'>

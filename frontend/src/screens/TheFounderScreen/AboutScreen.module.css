@@ -1,21 +1,11 @@
 
-.aboutScreen >span {
-    display: flex;
-flex-direction: row;
-position:relative;
+.TheFounderScreen {
+    max-width: 700px;
+    margin: auto;
 }
-.aboutScreen > span > p {
-    float: inline-start;
-    margin: 7px;
-    padding: 0;
-    display: flex;
-}
-.aboutScreen > span > p:nth-child(2){
-    position: absolute;
-    text-indent:115px;
-}
-.aboutScreen > span > p:nth-child(1){
-    font-weight: bold;
-}
-.aboutScreen {
+h5 {
+    margin-bottom: 45px;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-color: black;
 }

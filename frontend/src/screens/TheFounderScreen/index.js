@@ -66,6 +66,7 @@ const TheFounderScreen = ({ match }) => {
   return (
     <>
       <div className={classes.TheFounderScreen}>
+        <h5>About us</h5>
         <p>
           Deborah Martin Owens is an Alabama-raised mother, teacher, speaker,
           and purveyor of all things Southern and effortless. Growing up in
