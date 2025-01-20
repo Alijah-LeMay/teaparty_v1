@@ -38,8 +38,20 @@ const Header = (props) => {
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
-            <Route render={({ history }) => <SearchBox history={history} />} />
+            {/* <Route render={({ history }) => <SearchBox history={history} />} /> */}
             <Nav className='ml-auto'>
+              <LinkContainer to='/etiquettesession'>
+                <Nav.Link>Etiquette training</Nav.Link>
+              </LinkContainer>
+              <LinkContainer to='/etiquetteacademy'>
+                <Nav.Link>Etiquette academy</Nav.Link>
+              </LinkContainer>
+              <LinkContainer to='/afternoontea'>
+                <Nav.Link>Afternoon tea</Nav.Link>
+              </LinkContainer>
+              <LinkContainer to='/afternoontea'>
+                <Nav.Link>Our story</Nav.Link>
+              </LinkContainer>
               <LinkContainer to='/cart'>
                 <Nav.Link>
                   <i className='fas fa-shopping-cart'></i> Cart

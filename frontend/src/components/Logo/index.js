@@ -1,6 +1,6 @@
 import React from 'react'
 // Assets
-import logoSrc from '../Assets/logo.png'
+import logoSrc from '../Assets/logo.jpg'
 import { logoImageStyle, logoText } from '../Assets/Constants'
 // My Components
 

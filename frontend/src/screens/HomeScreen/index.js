@@ -13,6 +13,8 @@ import Paginate from '../../components/Paginate'
 import ProductCarousel from '../../components/ProductCarousel'
 import Meta from '../../components/Meta'
 import CTA from '../../components/CTA'
+import { showImageCarousel } from '../../components/Assets/Constants'
+import AboutScreen from '../AboutScreen'
 
 const HomeScreen = ({ match }) => {
   const keyword = match.params.keyword
@@ -29,36 +31,39 @@ const HomeScreen = ({ match }) => {
 
   return (
     <>
-      <Meta />
-      <CTA />
-      {!keyword ? (
-        <ProductCarousel />
-      ) : (
-        <Link to='/' className='btn btn-light'>
-          Go Back
-        </Link>
-      )}
-      <h1>Latest Products</h1>
-      {loading ? (
-        <Loader />
-      ) : error ? (
-        <Message variant='danger'>{error}</Message>
-      ) : (
-        <Fragment>
-          <Row>
-            {products.map((product) => (
-              <Col key={product._id} sm={12} m2={6} lg={4} xl={3}>
-                <Product product={product} />
-              </Col>
-            ))}
-          </Row>
-          <Paginate
-            pages={pages}
-            page={page}
-            keyword={keyword ? keyword : ''}
-          />
-        </Fragment>
-      )}
+      <div style={{ maxWidth: '700px', margin: 'auto' }}>
+        <Meta />
+        <CTA />
+        <AboutScreen />
+        {!keyword ? (
+          showImageCarousel && <ProductCarousel />
+        ) : (
+          <Link to='/' className='btn btn-light'>
+            Go Back
+          </Link>
+        )}
+        <h1>Latest Products</h1>
+        {loading ? (
+          <Loader />
+        ) : error ? (
+          <Message variant='danger'>{error}</Message>
+        ) : (
+          <Fragment>
+            <Row>
+              {products.map((product) => (
+                <Col key={product._id} sm={12} m2={6} lg={4} xl={3}>
+                  <Product product={product} />
+                </Col>
+              ))}
+            </Row>
+            <Paginate
+              pages={pages}
+              page={page}
+              keyword={keyword ? keyword : ''}
+            />
+          </Fragment>
+        )}
+      </div>
     </>
   )
 }

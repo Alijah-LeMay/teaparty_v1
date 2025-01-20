@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { listTopProducts } from '../../store/actions/productActions'
 import { primaryColor, singleImageCarousel } from '../Assets/Constants'
-import logoSrc from '../Assets/logo.png'
+import logoSrc from '../Assets/logo.jpg'
 
 const ProductCarousel = () => {
   const dispatch = useDispatch()

@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Alijah-LeMay/SillyLillySlime_v1.git"
+    "url": "git+https://github.com/Alijah-LeMay/teaparty_v1.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Alijah-LeMay/SillyLillySlime_v1/issues"
+    "url": "https://github.com/Alijah-LeMay/teaparty_v1/issues"
   },
-  "homepage": "https://github.com/Alijah-LeMay/SillyLillySlime_v1#readme",
+  "homepage": "https://github.com/Alijah-LeMay/teaparty_v1#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",

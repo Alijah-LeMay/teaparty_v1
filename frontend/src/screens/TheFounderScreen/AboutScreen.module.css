@@ -1,0 +1,21 @@
+
+.aboutScreen >span {
+    display: flex;
+flex-direction: row;
+position:relative;
+}
+.aboutScreen > span > p {
+    float: inline-start;
+    margin: 7px;
+    padding: 0;
+    display: flex;
+}
+.aboutScreen > span > p:nth-child(2){
+    position: absolute;
+    text-indent:115px;
+}
+.aboutScreen > span > p:nth-child(1){
+    font-weight: bold;
+}
+.aboutScreen {
+}

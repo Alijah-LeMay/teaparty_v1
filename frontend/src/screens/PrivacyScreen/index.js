@@ -19,11 +19,11 @@ const PrivacyScreen = ({ match }) => {
         <Row>
           <Col>
             <div>
-              <h2>SillyLillySlime.com Privacy Policy</h2>
+              <h2>TheFancyFork.com Privacy Policy</h2>
               <p>
                 This Privacy Policy describes how your personal information is
                 collected, used, and shared when you visit or make a purchase
-                from SillyLillySlime.com (the Site).
+                from TheFancyFork.com (the Site).
               </p>
               <h2>WHAT PERSONAL INFORMATION WE COLLECT</h2>
               <p>
@@ -92,7 +92,7 @@ const PrivacyScreen = ({ match }) => {
               </p>
               <p>
                 We also use Google Analytics to help us understand how our
-                customers use SillyLillySlime.com. How Google uses your Personal
+                customers use TheFancyFork.com. How Google uses your Personal
                 Information.
               </p>
               <p>

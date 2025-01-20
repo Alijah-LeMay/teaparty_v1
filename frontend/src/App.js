@@ -26,6 +26,10 @@ import OrderListScreen from './screens/OrderListScreen'
 import store from './store/store'
 import { Provider } from 'react-redux'
 import PrivacyScreen from './screens/PrivacyScreen'
+import AfternoonTeaScreen from './screens/AfternoonTeaScreen'
+import EtiquetteScreen from './screens/EtiquetteScreen'
+import EtiquetteAcademyClassScreen from './screens/EtiquetteAcademyClassScreen'
+import TheFounderScreen from './screens/TheFounderScreen'
 
 export const App = () => {
   return (
@@ -33,6 +37,16 @@ export const App = () => {
       <Header />
       <main className='py-3'>
         <Container>
+          {/* teaparty screens */}
+          <Route path='/afternoontea' component={AfternoonTeaScreen} />
+          <Route path='/aboutus' component={TheFounderScreen} />
+          <Route path='/etiquettesession' component={EtiquetteScreen} />
+          <Route
+            path='/etiquetteacademy'
+            component={EtiquetteAcademyClassScreen}
+          />
+
+          {/* teaparty screens */}
           <Route path='/order/:id' component={OrderScreen} />
           <Route path='/shipping' component={ShippingScreen} />
           <Route path='/payment' component={PaymentScreen} />
