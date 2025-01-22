@@ -8,9 +8,9 @@ import React from 'react'
 let logoText = ''
 
 //Product Carrousel,
-let primaryColor = '#B7B6C2'
+let primaryColor = 'lightgrey'
 //Navbar,
-let secondaryColor = '#4A6FA5'
+let secondaryColor = 'darkgrey'
 
 let primaryTextColor = 'white'
 
