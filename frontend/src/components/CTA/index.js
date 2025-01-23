@@ -8,6 +8,7 @@ import {
   showCta,
   instagramLink,
   instagramLinkText,
+  showInstagramLink,
 } from '../Assets/Constants'
 
 const CTA = () => {
@@ -16,14 +17,23 @@ const CTA = () => {
       <div className='row m-auto w-100 text-center py-2'>
         <div className='col m-auto w-100'>
           <h2 className='m-auto'>{ctaH2Text}</h2>
-          <div className='m-auto'>
-            <p>
-              {ctaDescText}{' '}
-              <a target='_blank' rel='noopener noreferrer' href={instagramLink}>
-                {instagramLinkText}
-              </a>
-            </p>
-          </div>
+          {showInstagramLink && (
+            <>
+              <div className='m-auto'>
+                <p>
+                  {ctaDescText}{' '}
+                  <a
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    href={instagramLink}
+                  >
+                    {instagramLinkText}
+                  </a>
+                </p>
+              </div>
+            </>
+          )}
+
           <div className='m-auto'>
             <a
               target='_blank'

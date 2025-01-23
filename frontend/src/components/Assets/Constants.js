@@ -61,7 +61,7 @@ let logoImageStyle = { maxWidth: '200px' }
 let logoImageBool = true
 
 let singleImageCarousel = false
-
+let showInstagramLink = false
 let instagramLink = ''
 let instagramLinkText = 'instagram Text'
 
@@ -117,4 +117,5 @@ export {
   aboutUsp6,
   aboutUsh7,
   aboutUsp7,
+  showInstagramLink,
 }
