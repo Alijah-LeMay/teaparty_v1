@@ -66,15 +66,15 @@ const AboutScreen = ({ match }) => {
   return (
     <>
       <div className={classes.aboutScreen}>
-        <span style={{ height: '80px' }}>
+        <span style={{ height: '140px' }}>
           <p>{aboutUsh1}</p>
           <p>{aboutUsp1}</p>
         </span>
-        <span style={{ height: '120px' }}>
+        <span style={{ height: '180px' }}>
           <p>{aboutUsh2}</p>
           <p>{aboutUsp2}</p>
         </span>
-        <span style={{ height: '100px' }}>
+        <span style={{ height: '180px' }}>
           <p>{aboutUsh3}</p>
           <p>{aboutUsp3}</p>
         </span>
@@ -82,15 +82,15 @@ const AboutScreen = ({ match }) => {
           <p>{aboutUsh4}</p>
           <p>{aboutUsp4}</p>
         </span>
-        <span style={{ height: '80px' }}>
+        <span style={{ height: '140px' }}>
           <p>{aboutUsh5}</p>
           <p>{aboutUsp5}</p>
         </span>
-        <span style={{ height: '80px' }}>
+        <span style={{ height: '140px' }}>
           <p>{aboutUsh6}</p>
           <p>{aboutUsp6}</p>
         </span>
-        <span style={{ height: '200px' }}>
+        <span style={{ height: '260px' }}>
           <p>{aboutUsh7}</p>
           <p>{aboutUsp7}</p>
         </span>

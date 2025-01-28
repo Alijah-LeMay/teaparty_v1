@@ -41,7 +41,7 @@ const CTA = () => {
               target='_blank'
               rel='noopener noreferrer'
               style={{ backgroundColor: secondaryColor }}
-              class='btn btn-primary m-auto'
+              className='btn btn-primary m-auto'
               href={ctaLink}
             >
               {ctaButtonText}

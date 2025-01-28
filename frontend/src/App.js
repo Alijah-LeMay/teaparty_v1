@@ -30,12 +30,14 @@ import AfternoonTeaScreen from './screens/AfternoonTeaScreen'
 import EtiquetteScreen from './screens/EtiquetteScreen'
 import EtiquetteAcademyClassScreen from './screens/EtiquetteAcademyClassScreen'
 import TheFounderScreen from './screens/TheFounderScreen'
+// import { PaymentForm } from 'react-square-web-payments-sdk'
 
 export const App = () => {
   return (
     <>
       <Header />
       <main className='py-3'>
+        {/* <PaymentForm /> */}
         <Container>
           {/* teaparty screens */}
           <Route path='/afternoontea' component={AfternoonTeaScreen} />

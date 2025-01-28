@@ -50,7 +50,7 @@ let aboutUsh7 = 'Customization:'
 let aboutUsp7 =
   'The Fancy Fork offers personalized add-ons to our Signature Afternoon Teas–Birthday Cakes, Goody Bags, and Tea Treat Trays for Ladies-in-Waiting (Guests waiting on tea participants). We also offer specific bake requests.  Peruse a large variety of treats at our Fancy Fork Bake Shop. The Fancy Fork also provides a beautifully decorated birthday cake available for your tea party for an additional fee.  '
 
-let ctaLink = ''
+let ctaLink = 'https://reservations.thefancyfork.net/'
 
 let ctaButtonText = 'Book Event'
 

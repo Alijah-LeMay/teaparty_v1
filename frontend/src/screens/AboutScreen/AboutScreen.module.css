@@ -12,7 +12,7 @@ position:relative;
 }
 .aboutScreen > span > p:nth-child(2){
     position: absolute;
-    text-indent:115px;
+    text-indent:160px;
 }
 .aboutScreen > span > p:nth-child(1){
     font-weight: bold;
