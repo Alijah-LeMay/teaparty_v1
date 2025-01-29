@@ -1,5 +1,10 @@
 import Order from '../models/orderModel.js'
+
 import asyncHandler from 'express-async-handler'
+
+import { SquareClient, SquareEnvironment } from 'square'
+
+import Client from 'square'
 // @desc        Create new order
 // @route       POST /api/orders
 // @access      PRIVATE
@@ -52,6 +57,7 @@ const getOrderById = asyncHandler(async (req, res) => {
 // @desc    Update order to paid
 // @route   GET /api/orders/:id/pay
 // @access  Private
+
 const updateOrderToPaid = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id)
 
@@ -75,6 +81,55 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
   }
 })
 
+// @desc    Update order to paid
+// @route   GET /api/orders/:id/squarepay
+// @access  Private
+
+const updateOrderToSquarePaid = asyncHandler(async (req, res) => {
+  const client = new SquareClient({
+    token: process.env.SQUARE_ACCESS_TOKEN_SANDBOX,
+    environment: SquareEnvironment.Sandbox,
+  })
+  const order = await Order.findById(req.params.id)
+  const { token } = req.body
+  console.log(order)
+  if (order && token) {
+    try {
+      const data = {
+        sourceId: token,
+        idempotencyKey: crypto.randomUUID(),
+        amountMoney: {
+          currency: 'USD',
+          amount: BigInt(order.price * 100),
+        },
+      }
+      // data.amountMoney.amount = amountInCents
+      const result = await client.payments.create(data)
+      console.log(result)
+      res.status(200)
+    } catch (error) {
+      console.error('Error creating payment:', error)
+      res.status(500).json({ error: 'Payment failed' })
+    }
+
+    order.isPaid = true
+    order.paidAt = Date.now()
+    // order.paymentResult = {
+    //   id: req.body.id,
+    //   status: req.body.status,
+    //   update_time: req.body.update_time,
+    //   email_address: req.body.payer.email_address,
+    // }
+
+    const updatedOrder = await order.save()
+
+    res.json(updatedOrder)
+    return
+  } else {
+    res.status(404)
+    throw new Error('Order not found')
+  }
+})
 // @desc    Update order to delivered
 // @route   GET /api/orders/:id/deliver
 // @access  Private/ Admin
@@ -121,4 +176,5 @@ export {
   updateOrderToDelivered,
   getMyOrders,
   getOrders,
+  updateOrderToSquarePaid,
 }

@@ -11,6 +11,7 @@ import {
   getOrderDetails,
   payOrder,
   deliverOrder,
+  squarePayOrder,
 } from '../../store/actions/orderActions'
 
 import {
@@ -21,6 +22,7 @@ import {
 // My Components
 import Message from '../../components/Message'
 import Loader from '../../components/Loader'
+import SquarePaymentForm from '../../components/SquarePaymentForm'
 
 const OrderScreen = ({ match, history }) => {
   const orderId = match.params.id
@@ -78,6 +80,10 @@ const OrderScreen = ({ match, history }) => {
 
   const successPaymentHandler = (paymentResult) => {
     dispatch(payOrder(orderId, paymentResult))
+  }
+  const successSquarePaymentHandler = (paymentResult) => {
+    console.log('payment handler triggered')
+    dispatch(squarePayOrder(orderId, paymentResult))
   }
 
   const deliverHandler = () => {
@@ -202,14 +208,19 @@ const OrderScreen = ({ match, history }) => {
               {!order.isPaid && (
                 <ListGroup.Item>
                   {loadingPay && <Loader />}
-                  {!sdkReady ? (
+
+                  <SquarePaymentForm
+                    success={successSquarePaymentHandler}
+                    orderId={orderId}
+                  />
+                  {/* {!sdkReady ? (
                     <Loader />
                   ) : (
                     <PayPalButton
                       amount={order.totalPrice}
                       onSuccess={successPaymentHandler}
                     />
-                  )}
+                  )} */}
                 </ListGroup.Item>
               )}
               {loadingDeliver && <Loader />}

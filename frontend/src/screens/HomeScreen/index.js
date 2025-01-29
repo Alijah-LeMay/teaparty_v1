@@ -15,6 +15,7 @@ import Meta from '../../components/Meta'
 import CTA from '../../components/CTA'
 import { showImageCarousel } from '../../components/Assets/Constants'
 import AboutScreen from '../AboutScreen'
+import SquarePaymentForm from '../../components/SquarePaymentForm'
 
 const HomeScreen = ({ match }) => {
   const keyword = match.params.keyword

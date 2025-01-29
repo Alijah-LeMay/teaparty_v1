@@ -37,7 +37,6 @@ export const App = () => {
     <>
       <Header />
       <main className='py-3'>
-        {/* <PaymentForm /> */}
         <Container>
           {/* teaparty screens */}
           <Route path='/afternoontea' component={AfternoonTeaScreen} />

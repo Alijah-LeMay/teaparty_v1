@@ -17,6 +17,9 @@ import {
   ORDER_DELIVER_REQUEST,
   ORDER_DELIVER_SUCCESS,
   ORDER_DELIVER_FAIL,
+  ORDER_SQUARE_PAY_REQUEST,
+  ORDER_SQUARE_PAY_SUCCESS,
+  ORDER_SQUARE_PAY_FAIL,
 } from '../constants/orderConstants'
 import axios from 'axios'
 
@@ -86,46 +89,85 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
     })
   }
 }
-export const payOrder = (orderId, paymentResult) => async (
-  dispatch,
-  getState
-) => {
-  try {
-    dispatch({
-      type: ORDER_PAY_REQUEST,
-    })
+// pay order route needs modification to add square pay
 
-    const {
-      userLogin: { userInfo },
-    } = getState()
+export const payOrder =
+  (orderId, paymentResult) => async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: ORDER_PAY_REQUEST,
+      })
 
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${userInfo.token}`,
-      },
+      const {
+        userLogin: { userInfo },
+      } = getState()
+
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${userInfo.token}`,
+        },
+      }
+
+      const { data } = await axios.put(
+        `/api/orders/${orderId}/pay`,
+        paymentResult,
+        config
+      )
+
+      dispatch({
+        type: ORDER_PAY_SUCCESS,
+        payload: data,
+      })
+    } catch (error) {
+      dispatch({
+        type: ORDER_PAY_FAIL,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      })
     }
-
-    const { data } = await axios.put(
-      `/api/orders/${orderId}/pay`,
-      paymentResult,
-      config
-    )
-
-    dispatch({
-      type: ORDER_PAY_SUCCESS,
-      payload: data,
-    })
-  } catch (error) {
-    dispatch({
-      type: ORDER_PAY_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
-    })
   }
-}
+
+export const squarePayOrder =
+  (orderId, token) => async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: ORDER_SQUARE_PAY_REQUEST,
+      })
+
+      const {
+        userLogin: { userInfo },
+      } = getState()
+
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${userInfo.token}`,
+        },
+      }
+
+      const { data } = await axios.put(
+        `/api/orders/${orderId}/squarepay`,
+        token,
+        config
+      )
+
+      dispatch({
+        type: ORDER_SQUARE_PAY_SUCCESS,
+        payload: data,
+      })
+    } catch (error) {
+      dispatch({
+        type: ORDER_SQUARE_PAY_FAIL,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      })
+    }
+  }
 
 export const deliverOrder = (order) => async (dispatch, getState) => {
   try {

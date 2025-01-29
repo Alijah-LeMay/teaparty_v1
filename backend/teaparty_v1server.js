@@ -42,6 +42,30 @@ app.get('/api/config/paypal', (req, res) => {
   return
 })
 
+app.get('/api/config/square', (req, res) => {
+  if (
+    process.env.NODE_ENV === 'PRODUCTION' ||
+    process.env.NODE_ENV === 'production'
+  ) {
+    let info = {
+      NODE_ENV: process.env.NODE_ENV,
+      appID: process.env.SQUARE_APP_ID_PRODUCTION,
+      locationID: process.env.SQUARE_LOCATION_ID_PRODUCTION,
+    }
+    console.log('using live square id')
+
+    res.send(info)
+  }
+  console.log('using test square id')
+  let info = {
+    NODE_ENV: process.env.NODE_ENV,
+    appID: process.env.SQUARE_APP_ID_SANDBOX,
+    locationID: process.env.SQUARE_LOCATION_ID_SANDBOX,
+  }
+
+  res.send(info)
+})
+
 const __dirname = path.resolve()
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
 
