@@ -10,7 +10,7 @@ let logoText = ''
 //Product Carrousel,
 let primaryColor = 'lightgrey'
 //Navbar,
-let secondaryColor = 'darkgrey'
+let secondaryColor = 'black'
 
 let primaryTextColor = 'white'
 
